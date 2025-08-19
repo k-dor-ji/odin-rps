@@ -24,7 +24,7 @@ const getHumanChoice = function(){
     return choice
 }
 
-const playRound = function( , cChoice) {
+const playRound = function( hChoice, cChoice) {
     hC = hChoice.toLowerCase()
     cC = cChoice.toLowerCase()
     
