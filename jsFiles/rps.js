@@ -1,5 +1,6 @@
 let hScore = 0, cScore = 0;
 
+let winScore = 5;
 const winCon ={
     rock: 'scissors',
     paper: 'rock',
@@ -24,7 +25,7 @@ const getHumanChoice = function(){
     return choice
 }
 
-const playRound = function(hChoice, cChoice) {
+const playRound = function( hChoice, cChoice) {
     hC = hChoice.toLowerCase()
     cC = cChoice.toLowerCase()
     
@@ -38,21 +39,39 @@ const playRound = function(hChoice, cChoice) {
         return "You lost this round."
     }
 }
+const rockButton = document.createElement("button");
+const paperButton = document.createElement("button");
+const scissorsButton = document.createElement("button");
+const results = document.createElement("h2");
 
-const playGame = function(rounds){
-    
+results.textContent = ("Results: " + hScore + " " + cScore)
+rockButton.textContent="Rock";
+scissorsButton.textContent="Scissors";
+paperButton.textContent="Paper";
 
-    for(let i = 0; i < rounds;i++){
-        let human = getHumanChoice()
-        let computer = getComputerChoice()
-        playRound(human, computer)
+const container = document.querySelector("#main");
 
-    }
-    if(hScore > cScore){
-        return "You won!"
-    }else{
-        return "You lost!"
-    }
-}
+rockButton.addEventListener("click", () => {
+    playRound("Rock", getComputerChoice());
+    results.textContent = ("Results: " + hScore + " " + cScore)
+    end();
 
-console.log(playGame(5));
+})
+scissorsButton.addEventListener("click", () => {
+    playRound("Scissors", getComputerChoice());
+    results.textContent = ("Results: " + hScore + " " + cScore)
+    end();
+
+})
+paperButton.addEventListener("click", () => {
+    playRound("Paper", getComputerChoice());
+    results.textContent = ("Results: " + hScore + " " + cScore)
+    end();
+
+})
+
+
+container.appendChild(rockButton);
+container.appendChild(scissorsButton);
+container.appendChild(paperButton);
+container.appendChild(results)
