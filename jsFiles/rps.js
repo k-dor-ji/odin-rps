@@ -1,9 +1,6 @@
 let hScore = 0, cScore = 0;
-<<<<<<< HEAD
 let winScore = 5;
-=======
 
->>>>>>> 934913599a4377efc19f7084f08f0568c788bb37
 const winCon ={
     rock: 'scissors',
     paper: 'rock',
